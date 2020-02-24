@@ -40,7 +40,7 @@ end
 
 def ball_on_number
   puts `clear`
-  puts "🎲🎰Please choose your number fine sir/or lady🎲🎰"
+  puts "🎲🎰Please choose your number you would like to bet on fine sir/or lady🎲🎰"
   sleep 1
   number_bet =gets.chomp.to_i
   puts "                      
@@ -75,13 +75,25 @@ sleep 2
 winner_number = rand(36)
 puts " \n\n\t\t\t\t\t **-----#{winner_number}------**\n\n"
 if winner_number === number_bet
-  puts "you win!".upcase
+  puts "you win $100!".upcase 
+
 else winner_number != number_bet
   puts "\n\n\t\t\t\t\tSorry.. you lose $100\n\n".upcase
-end  
+end 
+puts "    1. Play again
+       2. Return to Roulette Menu 
+       3. Go back to Casino"
+play_again_or_no =gets.chomp.to_i
+case play_again_or_no
+when 1
+ball_on_number
+when 2 
+roulette_menu
+when 3 
+end 
+
 end
 
-  
 def roulette_rules
 puts " Each Roll Cost $100. If you bet Red or Black you can double your money "
 end 
