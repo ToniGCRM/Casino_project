@@ -55,7 +55,7 @@ class Casino
     when player_choice == 3
       #Roulette.new
     when player_choice == 4
-      #Slots.new
+      Slots.new
     when player_choice == 5
       cash_out
     else 
