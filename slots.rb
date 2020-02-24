@@ -1,5 +1,6 @@
 require 'pry'
 require 'pry-byebug'
+require_relative 'casino.rb'
 # Need to set bet amount for game
 # trigger to pull arm 
 # three symbols, if they match, then big win, if two match smaller win
@@ -13,16 +14,15 @@ require 'pry-byebug'
 # \u{1F347} #grapes #5
 # \u{1F984} #unicorn/joker #6
 
-#If bankroll = $0, then don't let them play, kick them out to casino or something
-
- 
-  
 
 class Slots
   attr_accessor :player, :bankroll 
   def initialize (player, bankroll)
     @player = player
-    @bankroll = bankroll
+    @bankroll = bankroll #how to get their bankroll amount from the casino class? 
+    system 'clear'
+    puts "~~**~~**~~**~ Welcome to the loosest slots in town! ~**~~**~~**~~"
+    sleep(2)
     spin_again
   end
   def scoring
@@ -44,7 +44,7 @@ class Slots
     puts "You have $#{@bankroll}"
     spin_again
     end
-  def symbol_assign 
+  def symbol_assign #assign symbol to random value
     @emoji_array = []
     @slot_array.each do |item|
       if item == 1
@@ -72,24 +72,32 @@ class Slots
       @slot_array.push(rand(1..6))
       @slot_array.push(rand(1..6))
     end
-    # def slot2
-      
-    # end
-    # def slot3
-      
-    # end
+    puts "spin spin spin spin spin spin...."
+    sleep(2)
     slot1
     symbol_assign
   end
 
   def place_bet
-    puts "How much would you like to bet?"
-    @bet = gets.to_f
-    pull_lever
+    puts "************************************"
+    sleep(1)
+    if @bankroll <= 0
+      puts "You're out of money friend! You're outta here!"
+      exit #want to send them back to the casino, not kick them out
+    else
+      puts "How much would you like to bet?"
+       @bet = gets.to_f
+        if @bet > @bankroll 
+          puts "Sorry big spender, you don't have that much money!"
+          place_bet
+        else
+        pull_lever
+      end
+    end
   end
   
   def spin_again
-    puts "Would you like to pull the lever?"
+    puts "Would you like to pull the lever? (y/n)"
     answer = gets.strip 
     if answer == "y"
       place_bet
@@ -103,7 +111,7 @@ class Slots
   end
 
   def exit_to_casino
-    #Casino.new
+    Casino.new
     #send new wallet amount with user
   end
 end
