@@ -101,13 +101,12 @@ class Slots
     answer = gets.strip 
     if answer == "y"
       place_bet
-    if answer == "n"
+    elsif answer == "n"
       exit_to_casino
     else 
       puts "Please enter lower case 'y' or 'n'"
       spin_again
     end
-  end
   end
 
   def exit_to_casino
