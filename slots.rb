@@ -111,10 +111,10 @@ class Slots
   end
 
   def exit_to_casino
-    Casino.new
+    Casino.new(@player,@bankroll)
     #send new wallet amount with user
   end
 end
 
-Slots.new("Toni", 1000)
+# Slots.new("Toni", 1000)
 
