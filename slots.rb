@@ -83,7 +83,7 @@ class Slots
     sleep(1)
     if @bankroll <= 0
       puts "You're out of money friend! You're outta here!"
-      exit #want to send them back to the casino, not kick them out
+      Casino.new(@player,@bankroll)
     else
       puts "How much would you like to bet?"
        @bet = gets.to_f

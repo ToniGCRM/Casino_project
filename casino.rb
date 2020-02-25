@@ -33,7 +33,7 @@ class Casino
   #print their total amount
   puts "Your total winnings: $#{@bankroll}"
   puts "Have a nice day!"
-  #if negative be threatening
+  exit
   end
   end
 
