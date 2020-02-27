@@ -1,4 +1,4 @@
-
+require_relative 'casino.rb'
 
   def game_prompt
     print "Let's play some high low!"
