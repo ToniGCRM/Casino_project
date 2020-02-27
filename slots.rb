@@ -1,6 +1,5 @@
 require 'pry'
 require 'pry-byebug'
-require_relative 'casino.rb'
 # Need to set bet amount for game
 # trigger to pull arm 
 # three symbols, if they match, then big win, if two match smaller win
@@ -101,17 +100,8 @@ class Slots
     answer = gets.strip 
     if answer == "y"
       place_bet
-    elsif answer == "n"
-      exit_to_casino
     else 
-      puts "Please enter lower case 'y' or 'n'"
-      spin_again
     end
-  end
-
-  def exit_to_casino
-    Casino.new(@player,@bankroll)
-    #send new wallet amount with user
   end
 end
 
