@@ -8,6 +8,7 @@ require_relative 'slots.rb'
 # Player's bankroll goes up and down with wins and losses
 # Need to define how to add winnings in
 def welcome
+  `clear`
   puts "Welcome to the Casino"
   # get name
   # get bankroll
@@ -41,7 +42,7 @@ class Casino
     # Player can go to different games via menu
     puts "What game would you like to play?"
     puts "
-    1) Blackjack
+    1) Beetle
     2) Hi-Lo
     3) Roulette
     4) Slots
@@ -49,9 +50,9 @@ class Casino
     player_choice = gets.to_i
     case
     when player_choice == 1
-      #Blackjack.new
+      Beetle.new
     when player_choice == 2
-      #Hilo.new
+      Hilo.new
     when player_choice == 3
       Roulette.new(@player, @bankroll)
     when player_choice == 4
@@ -62,6 +63,7 @@ class Casino
       "Invalid selection, please enter a number 1-5"
       game_choice
     end
+    game_choice
 end
 
 welcome

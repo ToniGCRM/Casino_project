@@ -1,4 +1,5 @@
-require_relative 'casino.rb'
+
+
 class Roulette 
   attr_accessor :player, :bankroll 
   def initialize (player, bankroll)
@@ -6,12 +7,14 @@ class Roulette
     @bankroll = bankroll
     roulette_menu
   end
+
 def greeting 
 `clear`
 puts "\n\n\n"
   puts "🎰🎰🎰🎰🎲🎲🎲💰💰💰💰 Welcome To Sam's Roulette Table 💰💰💰🎲🎲🎲🎰🎰🎰🎰"
 puts "\n\n\n\n"
 end
+
 def roulette_menu 
   puts greeting 
   puts "     We Roll The Dice! You choose your slice. 
@@ -19,7 +22,7 @@ def roulette_menu
               Double your bet, if you lose you lose $100 
 
   1. Bet on Number 1-36 Roulette Wheel 
-  2. Go back to the casion  
+  2. Go back to the casino  
   "
   puts "Choose an option from above to play"
 user_input =gets.chomp.to_i
@@ -27,12 +30,13 @@ case user_input
 when 1
   ball_on_number
 when 2
-    back_to_casion
   end 
 end 
+
 def bet_red 
   puts rand(36)
 end 
+
 def ball_on_number
   puts `clear`
   puts "🎲🎰Please choose your number (1-36) you would like to bet on fine sir/or lady🎲🎰"
@@ -69,28 +73,24 @@ if winner_number === number_bet
   puts "#{@player} you win $100 !".upcase 
 else winner_number != number_bet 
   winnings 
-  puts "\n\n\t\Sorry.. #{@player} you lose $100, You know have #{@bankroll}\n\n\\n".upcase 
+  puts "\n\n\t\ Sorry.. #{@player} you lose $100, You now have #{@bankroll}\n\n\n".upcase 
 end 
 puts "\n\n\n    1. Play again
        2. Return to Roulette Menu 
        3. Go back to Casino"
-play_again_or_no =gets.chomp.to_i
-case play_again_or_no
-when 1
-ball_on_number
-when 2 
-roulette_menu
-when 3 
-back_to_casion
-end 
-end
+play_again_or_no = gets.chomp.to_i
+  case play_again_or_no
+  when 1
+  ball_on_number
+  when 2 
+  roulette_menu
+  when 3 
+  end 
+  end
 def roulette_rules
 puts " Each Roll Cost $100. If you bet Red or Black you can double your money "
 end 
 def winnings
   @bankroll = @bankroll - 100
-end
-def back_to_casion
-    Casino.new(@player, @bankroll)
 end
 end
