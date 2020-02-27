@@ -17,7 +17,6 @@ def roulette_menu
   puts "     We Roll The Dice! You choose your slice. 
               Each Roll cost $100 dollars if you win, You
               Double your bet, if you lose you lose $100 
-              
   1. Bet Red 
   2. Bet Black 
   3. Bet on Number 1-36 Roulette Wheel 
@@ -32,13 +31,11 @@ when 3
   ball_on_number
 when 4
     back_to_casion
-
   end 
 end 
 def bet_red 
   puts rand(36)
 end 
-
 def ball_on_number
   puts `clear`
   puts "🎲🎰Please choose your number you would like to bet on fine sir/or lady🎲🎰"
@@ -71,10 +68,11 @@ sleep 2
 winner_number = rand(36)
 puts " \n\n\t\t\t\t\t **-----#{winner_number}------**\n\n"
 if winner_number === number_bet
+  @bankroll = @bankroll + 100
   puts "#{@player} you win $100 !".upcase 
-
 else winner_number != number_bet 
-  puts "\n\n\t\Sorry.. #{@player} you lose $100, You know have #{winnings}\n".upcase  
+  winnings 
+  puts "\n\n\t\Sorry.. #{@player} you lose $100, You know have #{@bankroll}\n".upcase 
 end 
 puts "    1. Play again
        2. Return to Roulette Menu 
@@ -92,24 +90,10 @@ end
 def roulette_rules
 puts " Each Roll Cost $100. If you bet Red or Black you can double your money "
 end 
+def winnings
+  @bankroll = @bankroll - 100
 end
 def back_to_casion
     Casino.new(@player, @bankroll)
 end
-Roulette.new("Sam", "1000")
-
-def winnings
-  @bankroll - 100.to_i
 end
-
-
-
-
-
-
-
-
-
-
-
-
