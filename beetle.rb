@@ -366,4 +366,4 @@ class Beetle_game
 
 end
 
-Beetle_game.new.introduction
+

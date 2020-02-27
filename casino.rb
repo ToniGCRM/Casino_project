@@ -1,6 +1,4 @@
-require_relative 'blackjack.rb'
-require_relative 'cards.rb'
-require_relative 'dice.rb'
+require_relative 'beetle.rb'
 require_relative 'hilo.rb'
 require_relative 'roulette.rb'
 require_relative 'slots.rb'
@@ -8,7 +6,7 @@ require_relative 'slots.rb'
 # Player's bankroll goes up and down with wins and losses
 # Need to define how to add winnings in
 def welcome
-  `clear`
+  system 'clear'
   puts "Welcome to the Casino"
   # get name
   # get bankroll
@@ -50,7 +48,7 @@ class Casino
     player_choice = gets.to_i
     case
     when player_choice == 1
-      Beetle.new
+      Beetle_game.new.introduction
     when player_choice == 2
       Hilo.new
     when player_choice == 3
