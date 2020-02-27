@@ -17,19 +17,16 @@ def roulette_menu
   puts "     We Roll The Dice! You choose your slice. 
               Each Roll cost $100 dollars if you win, You
               Double your bet, if you lose you lose $100 
-  1. Bet Red 
-  2. Bet Black 
-  3. Bet on Number 1-36 Roulette Wheel 
-  4. Go back to the casion  
+
+  1. Bet on Number 1-36 Roulette Wheel 
+  2. Go back to the casion  
   "
   puts "Choose an option from above to play"
 user_input =gets.chomp.to_i
 case user_input
 when 1
-bet_red
-when 3
   ball_on_number
-when 4
+when 2
     back_to_casion
   end 
 end 
@@ -38,7 +35,7 @@ def bet_red
 end 
 def ball_on_number
   puts `clear`
-  puts "🎲🎰Please choose your number you would like to bet on fine sir/or lady🎲🎰"
+  puts "🎲🎰Please choose your number (1-36) you would like to bet on fine sir/or lady🎲🎰"
   sleep 1
   number_bet =gets.chomp.to_i
   puts "                      
@@ -66,15 +63,15 @@ def ball_on_number
 puts "The ball landed on ........ "
 sleep 2
 winner_number = rand(36)
-puts " \n\n\t\t\t\t\t **-----#{winner_number}------**\n\n"
+puts " \n\n\t\t **-----#{winner_number}------**\n\n"
 if winner_number === number_bet
   @bankroll = @bankroll + 100
   puts "#{@player} you win $100 !".upcase 
 else winner_number != number_bet 
   winnings 
-  puts "\n\n\t\Sorry.. #{@player} you lose $100, You know have #{@bankroll}\n".upcase 
+  puts "\n\n\t\Sorry.. #{@player} you lose $100, You know have #{@bankroll}\n\n\\n".upcase 
 end 
-puts "    1. Play again
+puts "\n\n\n    1. Play again
        2. Return to Roulette Menu 
        3. Go back to Casino"
 play_again_or_no =gets.chomp.to_i
